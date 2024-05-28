@@ -1,0 +1,22 @@
+div.st-emotion-cache-1v0mbdj img{
+    border-radius: 50%;
+}
+[data-testid="baseButton-secondary"]{
+    background-color: #FFFFFF;
+}
+
+div.glideDataEditor{
+    border: 2px solid black
+}
+div.user-select-none{
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;   
+}
+div.st-emotion-cache-1r6slb0{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+   border-radius: 10px;
+   
+}
+[data-testid="stMetricValue"]{
+    padding-left: 30px;
+   
+}
