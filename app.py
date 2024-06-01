@@ -32,7 +32,7 @@ def show_admin_page():
      body['_id'] = grievance['_id']
      body['timestamp'] = grievance['timestamp']
      if grievance['state']==1:
-         body['status']= "Panding"
+         body['status']= "Pending"
      elif grievance['state']==2:
          body['status']= "Completed"
      elif grievance['state']==3:
@@ -204,7 +204,7 @@ def show_user_page():
                 body['_id'] = grievance['_id']
                 body['timestamp'] = grievance['timestamp']
                 if grievance['state']==1:
-                    body['status']= "Panding"
+                    body['status']= "Pending"
                 elif grievance['state']==2:
                     body['status']= "Completed"
                 elif grievance['state']==3:
