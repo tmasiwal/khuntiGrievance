@@ -45,11 +45,11 @@ def show_admin_page():
     if 'logged_in' not in st.session_state or not st.session_state['logged_in']:
             if st.sidebar.button('Login',use_container_width=True):
                 st.session_state['logged_in'] = True
-                st.experimental_rerun()
+                st.rerun()
     else:
             if st.sidebar.button('Logout',use_container_width=True):
                 st.session_state['logged_in'] = False
-                st.experimental_rerun()
+                st.rerun()
     # switcher or filter
     st.sidebar.header("Please select filter")
     block=st.sidebar.multiselect("Select Block",options=df["Block"].unique())
@@ -71,17 +71,17 @@ def show_admin_page():
         #  print(id_for_update,status_to_update)
          if status_to_update=="Completed":
              col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 2}})
-             st.experimental_rerun()
+             st.rerun()
          elif status_to_update=="Pending":
              col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 1}})
-             st.experimental_rerun()
+             st.rerun()
 
          elif status_to_update=="Reject":
              col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 3}})
-             st.experimental_rerun()
+             st.rerun()
       
          st.success("Status updated successfully!")
-         st.experimental_rerun()
+         st.rerun()
         except Exception as e:
           st.error(f"An error occurred: {e}")
     
@@ -190,11 +190,11 @@ def show_user_page():
     if 'logged_in' not in st.session_state or not st.session_state['logged_in']:
                         if st.sidebar.button('Login',use_container_width=True):
                             st.session_state['logged_in'] = True
-                            st.experimental_rerun()
+                            st.rerun()
     else:
                         if st.sidebar.button('Logout',use_container_width=True):
                             st.session_state['logged_in'] = False
-                            st.experimental_rerun()
+                            st.rerun()
     grievances=list(col.find({"body.block":st.session_state["block_name"]}))
 
     modified_grievances = []
@@ -241,17 +241,17 @@ def show_user_page():
                     #  print(id_for_update,status_to_update)
                      if status_to_update=="Completed":
                         col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 2}})
-                        st.experimental_rerun()
+                        st.rerun()
                      elif status_to_update=="Pending":
                         col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 1}})
-                        st.experimental_rerun()
+                        st.rerun()
 
                      elif status_to_update=="Reject":
                         col.update_one({"_id": ObjectId(id_for_update)}, {"$set": { "state": 3}})
-                        st.experimental_rerun()
+                        st.rerun()
                 
                      st.success("Status updated successfully!")
-                     st.experimental_rerun()
+                     st.rerun()
                     except Exception as e:
                      st.error(f"An error occurred: {e}")
                 
@@ -347,11 +347,11 @@ def main():
              if user_type == 'admin':
                 st.session_state['logged_in'] = True
                 st.session_state['user_type'] = 'admin'
-                st.experimental_rerun()
+                st.rerun()
              elif user_type == 'user':
                 st.session_state['logged_in'] = True
                 st.session_state['user_type'] = 'user'
-                st.experimental_rerun()
+                st.rerun()
              else:
                 st.error("Invalid credentials")
     else:
